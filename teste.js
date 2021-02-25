@@ -17,28 +17,6 @@ sql.query(connectionString, query1, (err1, rows) => {
 
 
 
-    // var remetente = nodemailer.createTransport({
-    //     service: 'outlook', //serviço
-    //     host: 'smtp.office365.com', //servidor smtp
-    //     port: '587', //porta smtp
-    //     auth: {
-    //         user: 'lucaschicoski@directy.com.br', //email
-    //         pass: '@Directy2020' //senha
-    //     }
-    // })
-
-    // var remetente = nodemailer.createTransport({
-    //     service: 'outlook', //serviço
-    //     host: 'smtp.office365.com', //servidor smtp
-    //     port: '587', //porta smtp
-    //     auth: {
-    //         user: 'disbatbaterias@outlook.com', //email
-    //         pass: 'Disbat210*' //senha
-    //     }
-    // })
-
-
-
     var clienteJS = [rows];
     //  console.log(rows[0]);
     //console.log(clienteJS);
@@ -56,43 +34,46 @@ sql.query(connectionString, query1, (err1, rows) => {
 
         if (empresa === "DISBAT") {
 
-            emailEmpresa = "disbatbaterias@outlook.com";
+            emailEmpresa = "suporte@directy.com.br";
             
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'disbatbaterias@outlook.com', //email
-                    pass: 'Disbat210*' //senha
+                    user: 'suporte@directy.com.br', //email
+                    pass: '@Escritorio#504', //senha
+                 
                 }
             });
         } else if (empresa === "POLO") {
 
-            emailEmpresa = "polobaterias@outlook.com";
-
+            emailEmpresa = "suporte@directy.com.br";
+            
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'polobaterias@outlook.com', //email
-                    pass: 'Disbat210*' //senha
+                    user: 'suporte@directy.com.br', //email
+                    pass: '@Escritorio#504', //senha
+                 
                 }
             });
         } else if (empresa === "NORTESUL") {
 
-            emailEmpresa = "nortesulbaterias@outlook.com";
-
+            emailEmpresa = "suporte@directy.com.br";
+            
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'nortesulbaterias@outlook.com', //email
-                    pass: 'Disbat210*' //senha
+                    user: 'suporte@directy.com.br', //email
+                    pass: '@Escritorio#504', //senha
+                    
                 }
-            })
+            });
         }
         // console.log(empresa)
         // console.log(cliente)
@@ -161,7 +142,7 @@ sql.query(connectionString, query1, (err1, rows) => {
 
             var destinatario = {
                 from: emailEmpresa, //de quem
-                to: "lucaschicoski@directy.com.br" , //emaiL
+                to: emaiL , //emaiL
                 subject: 'Saldo de sucatas de baterias', //assunto
                 //text: mensagem,//cabecalho + dataFrame + mensagem + rodape + agradecimentos
                 html: `${cabecalho}` + `
