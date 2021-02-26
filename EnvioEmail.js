@@ -6,7 +6,7 @@ const { ro } = require("date-fns/locale");
 
 const connectionString = "server=Servidor2;Database=disbat_automate;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
 
-const query1 = "select cliente, empresa, email from notifica_email where email is not null and empresa = 'NORTESUL' group by cliente, empresa, email";
+const query1 = "select cliente, empresa, email from notifica_email where email is not null group by cliente, empresa, email";
 //select cliente, empresa, email from notifica_email where email is not null group by cliente, empresa, email
 //select cliente, empresa, email from notifica_email where empresa = 'POLO' and email is not null group by cliente, empresa, email
 //select cliente, empresa, email from notifica_email where empresa = 'NORTESUL' and email is not null group by cliente, empresa, email
@@ -34,43 +34,43 @@ sql.query(connectionString, query1, (err1, rows) => {
 
         if (empresa === "DISBAT") {
 
-            emailEmpresa = "suporte@directy.com.br";
+            emailEmpresa = "disbatbaterias@outlook.com";
             
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'suporte@directy.com.br', //email
-                    pass: '@Escritorio#504', //senha
+                    user: 'disbatbaterias@outlook.com', //email
+                    pass: 'Disbat210*', //senha
                  
                 }
             });
         } else if (empresa === "POLO") {
 
-            emailEmpresa = "suporte@directy.com.br";
+            emailEmpresa = "polobaterias@outlook.com";
             
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'suporte@directy.com.br', //email
-                    pass: '@Escritorio#504', //senha
+                    user: 'polobaterias@outlook.com', //email
+                    pass: 'Disbat210*', //senha
                  
                 }
             });
         } else if (empresa === "NORTESUL") {
 
-            emailEmpresa = "suporte@directy.com.br";
+            emailEmpresa = "nortesulbaterias@outlook.com";
             
             var remetente = nodemailer.createTransport({
                 service: 'outlook', //serviço
                 host: 'smtp.office365.com', //servidor smtp
                 port: '587', //porta smtp
                 auth: {
-                    user: 'suporte@directy.com.br', //email
-                    pass: '@Escritorio#504', //senha
+                    user: 'nortesulbaterias@outlook.com', //email
+                    pass: 'Disbat210*', //senha
                     
                 }
             });
@@ -158,7 +158,7 @@ sql.query(connectionString, query1, (err1, rows) => {
 
             async function enviar() {
                 await remetente.sendMail(destinatario, (err, inf) =>{
-                    console.log(err)
+                    console.log(err);
                 });
             }
             
